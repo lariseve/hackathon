@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ForumTechnologie from './Components/forum/ForumTechnologie';
+import TopicPage from './Components/forum/TopicPage';
+import NewTopicPage from './Components/forum/NewTopicPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/forum/technologie" element={<ForumTechnologie />} />
+        <Route path="/forum/technologie/new-topic" element={<NewTopicPage />} />
+        <Route path="/forum/technologie/:topicId" element={<TopicPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
